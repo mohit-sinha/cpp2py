@@ -7,7 +7,6 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
 
 f = open("new.jpg", "wb")
-
 veri = s.recv(4)
 print(veri)
 

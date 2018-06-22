@@ -56,10 +56,10 @@ int main(int argc , char *argv[]) {
     int socket_desc , new_socket , c, read_size,buffer = 0;
     struct sockaddr_in server , client;
     char *readin;
-
+    int sockenable = 1;
     //Create socket
     socket_desc = socket(AF_INET , SOCK_STREAM , 0);
-    if (socket_desc == -1) {
+    if (socket_desc == -1 || setsockopt(socket_desc, SOL_SOCKET, SO_REUSEADDR, &sockenable, sizeof(int)) < 0) {
         printf("Could not create socket");
     }
 
