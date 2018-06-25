@@ -1,5 +1,6 @@
 import socket
 import numpy as np
+#import cv2
 
 host = '127.0.0.1'
 port = 8889
@@ -18,4 +19,5 @@ while True:
 
 f.close()
 s.close()
+
 
