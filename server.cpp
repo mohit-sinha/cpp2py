@@ -93,9 +93,10 @@ int main(int argc , char *argv[]) {
         perror("Accept Failed");
         return 1;
     }
-
+    clock_t start = clock();
     send_image(new_socket);
-
+    clock_t end = clock();
+    cout<< "\nTime taken to read and transfer file " << static_cast<double>((end-start))/CLOCKS_PER_SEC << " seconds.\n";
     close(socket_desc);
     fflush(stdout);
     return 0;
