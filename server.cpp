@@ -11,7 +11,17 @@ using namespace std;
 
 int send_image(int socket) {
 
-    FILE *picture;
+    while(1) {
+        VideoCapture cap(0);
+        Mat save_img; cap >> save_img;
+
+        if(save_img.empty()) {
+        std::cerr << "Something is wrong with the webcam, could not get frame." << std::endl;
+        }
+        imwrite("test.jpg", save_img);
+    }
+
+    /*FILE *picture;
     int size, read_size, stat, packet_index;
     char send_buffer[10240], read_buffer[256];
     packet_index = 1;
@@ -48,7 +58,7 @@ int send_image(int socket) {
         packet_index++;
         
         bzero(send_buffer, sizeof(send_buffer));
-    }
+    }*/
 }
 
 int main(int argc , char *argv[]) {

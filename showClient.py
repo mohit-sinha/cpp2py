@@ -17,10 +17,11 @@ print(size)
 f = open("image.jpg", "wb")
 
 start = time.time()
-img1 = BytesIO(s.recv(size))
-img2 = Image.open(img1)
-image = np.array(img2)
-image = image[:,:,::-1]
+# img1 = BytesIO(s.recv(size))
+# img2 = Image.open(img1)
+# image = np.array(img2)
+# image = image[:,:,::-1]
+image = cv2.imdecode(s.recv(size), 1);
 print(time.time()-start)
 
 cv2.imshow("hey", image)
